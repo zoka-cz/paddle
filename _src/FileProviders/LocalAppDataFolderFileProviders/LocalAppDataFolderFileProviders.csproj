@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>Zoka.Paddle.FileProviders.LocalAppDataFolderFileProviders</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\LocalAppDataFolderFileProviders.xml</DocumentationFile>
+      <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\LocalAppDataFolderFileProviders.xml</DocumentationFile>
+      <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="SharpZipLib" Version="1.4.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Common\CSCommon\CSCommon.csproj" />
+      <ProjectReference Include="..\..\PlatformConfiguration\PlatformConfiguration.Abstraction\PlatformConfiguration.Abstraction.csproj" />
+      <ProjectReference Include="..\FileProviders.Abstraction\FileProviders.Abstraction.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,39 @@
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;Xamarin.iOS10;MonoAndroid11.0;</TargetFrameworks>
+		<RootNamespace>Zoka.Paddle.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="**\*.shared.cs" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
+	</ItemGroup>
+
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+		<Compile Include="**\*.android.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Plugin.NFC" Version="0.1.23" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Common\CSCommon\CSCommon.csproj" />
+	  <ProjectReference Include="..\..\UIWrapper\UIWrapper.Xamarin\UIWrapper.Xamarin.csproj" />
+	  <ProjectReference Include="..\RFIDReader.Abstraction\RFIDReader.Abstraction.csproj" />
+	</ItemGroup>
+
+</Project>

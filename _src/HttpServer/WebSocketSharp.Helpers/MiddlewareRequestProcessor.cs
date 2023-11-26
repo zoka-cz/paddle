@@ -60,10 +60,18 @@ namespace Zoka.Paddle.WebSocketSharp.Helpers
 			Debug.WriteLine($"Request for {e.Request.HttpMethod} {e.Request.Url}");
 			using (var service_scope = m_ServiceProvider.CreateScope())
 			{
-				var context = new WebSocketSharpMiddlewareContext(e);
+				try
+				{
+					var context = new WebSocketSharpMiddlewareContext(e);
 
-				var pipeline = BuildPipeline(service_scope.ServiceProvider);
-				await pipeline(context, service_scope.ServiceProvider);
+					var pipeline = BuildPipeline(service_scope.ServiceProvider);
+					await pipeline(context, service_scope.ServiceProvider);
+				}
+				catch (Exception ex)
+				{
+					Debug.WriteLine("Error processing request pipeline");
+					Debug.WriteLine(ex.ToStringAllExceptionDetails());
+				}
 			}
 		}
 

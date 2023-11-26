@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ita_mobile_terminal.MainPage">
+
+	<StackLayout>
+		<!--<Button Text="Start" x:Name="ToggleCamera" Clicked="ToggleCamera_OnClicked"></Button>
+		<Button Text="Move" x:Name="MoveCamera" Clicked="MoveCamera_OnClicked"></Button>-->
+		<AbsoluteLayout  Margin="0" VerticalOptions="FillAndExpand">
+			<WebView x:Name="Browser" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"  AbsoluteLayout.LayoutFlags="SizeProportional" />
+			<StackLayout x:Name="CameraLayout" IsVisible="False" AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.5, 0.5" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#CCCCCC">
+				<!--<forms:ZXingScannerView x:Name="zxing" VerticalOptions="FillAndExpand" IsScanning="{Binding IsScanning}"  OnScanResult="ZxingOnOnScanResult"/>-->
+				<!--<Label Text="{Binding MyStringProperty}" x:Name="ScanResult"></Label>-->
+			</StackLayout>
+		</AbsoluteLayout>
+	</StackLayout>
+
+</ContentPage>
